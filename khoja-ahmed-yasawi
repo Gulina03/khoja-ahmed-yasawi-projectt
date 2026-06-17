@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mausoleum of Khoja Ahmed Yasawi | KE4H Project</title>
+
+<style>
+:root{
+  --ivory:#fbf8f1;
+  --cream:#fffaf0;
+  --glass:rgba(255,255,255,.72);
+  --gold:#c9a227;
+  --gold-dark:#a87b1c;
+  --sand:#d9b382;
+  --turquoise:#36b7cc;
+  --azure:#1594bd;
+  --blue:#1f4e79;
+  --navy:#0f2f48;
+  --ink:#2e261d;
+  --muted:#6a716f;
+  --shadow:0 18px 45px rgba(31,78,121,.14);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Georgia,"Times New Roman",serif;
+  background:
+    radial-gradient(circle at 8% 4%,rgba(54,183,204,.16),transparent 28rem),
+    radial-gradient(circle at 92% 18%,rgba(201,162,39,.16),transparent 26rem),
+    linear-gradient(180deg,var(--ivory),#f7efe1);
+  color:var(--ink);
+  line-height:1.65;
+}
+body:before{
+  content:"";
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:.05;
+  background-image:
+    linear-gradient(45deg,var(--azure) 25%,transparent 25%),
+    linear-gradient(-45deg,var(--azure) 25%,transparent 25%),
+    linear-gradient(45deg,transparent 75%,var(--gold) 75%),
+    linear-gradient(-45deg,transparent 75%,var(--gold) 75%);
+  background-size:44px 44px;
+  background-position:0 0,0 22px,22px -22px,-22px 0;
+}
+a{text-decoration:none;color:inherit}
+.nav{
+  position:sticky;
+  top:0;
+  z-index:100;
+  background:rgba(251,248,241,.9);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid rgba(201,162,39,.35);
+}
+.nav-inner{
+  max-width:1220px;
+  margin:auto;
+  padding:13px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand{font-weight:900;color:var(--navy)}
+.nav a{
+  margin-left:16px;
+  font-size:13px;
+  font-weight:800;
+  color:var(--blue);
+}
+.nav a:hover{color:var(--gold-dark)}
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:center;
+  background:
+    linear-gradient(90deg,rgba(251,248,241,.94),rgba(251,248,241,.72),rgba(21,148,189,.22)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum%20of%20Khoja%20Ahmed%20Yasawi.jpg") center/cover no-repeat;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  left:0;right:0;bottom:0;
+  height:120px;
+  background:linear-gradient(transparent,var(--ivory));
+}
+.hero-content{
+  max-width:1220px;
+  width:100%;
+  margin:auto;
+  padding:80px 22px 110px;
+  position:relative;
+  z-index:2;
+}
+.hero-box{
+  max-width:740px;
+  padding:44px;
+  background:rgba(255,255,255,.6);
+  border:1px solid rgba(201,162,39,.55);
+  border-radius:34px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(10px);
+}
+.kicker{
+  color:var(--gold-dark);
+  text-transform:uppercase;
+  letter-spacing:2.3px;
+  font-size:12px;
+  font-weight:900;
+}
+h1{
+  margin:13px 0 18px;
+  font-size:68px;
+  line-height:.98;
+  color:var(--navy);
+}
+h2{
+  margin:8px 0 0;
+  font-size:45px;
+  line-height:1.08;
+  color:var(--navy);
+}
+h3{color:var(--blue);font-size:24px;margin:0 0 10px}
+p{font-size:17px}
+.subtitle{font-size:21px;color:var(--blue);font-weight:700}
+.tag{
+  display:inline-block;
+  margin:4px 5px 4px 0;
+  padding:7px 13px;
+  border-radius:999px;
+  background:rgba(54,183,204,.12);
+  border:1px solid rgba(54,183,204,.36);
+  color:var(--blue);
+  font-size:13px;
+  font-weight:800;
+}
+.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.glass-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 17px;
+  border-radius:17px;
+  background:rgba(255,255,255,.68);
+  border:1px solid rgba(201,162,39,.58);
+  box-shadow:0 12px 28px rgba(15,47,72,.10);
+  color:var(--blue);
+  font-weight:800;
+  transition:.2s;
+}
+.glass-link:hover{transform:translateY(-3px);border-color:var(--gold)}
+.section{
+  max-width:1220px;
+  margin:auto;
+  padding:76px 22px;
+  position:relative;
+  z-index:2;
+}
+.section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:32px;
+  margin-bottom:32px;
+}
+.section-head p{max-width:560px;color:var(--muted);margin:0}
+.eyebrow{
+  color:var(--gold-dark);
+  text-transform:uppercase;
+  letter-spacing:2.2px;
+  font-size:12px;
+  font-weight:900;
+}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.card{
+  background:var(--glass);
+  border:1px solid rgba(201,162,39,.38);
+  border-radius:28px;
+  padding:28px;
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+}
+.gold{background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(201,162,39,.13))}
+.blue{background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(54,183,204,.10))}
+.photo{
+  min-height:380px;
+  border-radius:30px;
+  background-size:cover;
+  background-position:center;
+  border:1px solid rgba(201,162,39,.5);
+  box-shadow:0 24px 55px rgba(15,47,72,.16);
+}
+.photo.one{background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum%20of%20Khoja%20Ahmed%20Yasawi%2010.jpg")}
+.photo.two{background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum%20of%20Khoja%20Ahmed%20Yasawi%20in%20Hazrat-e%20Turkestan%2C%20Kazakhstan.jpg")}
+.photo.three{background-image:url("https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum%20of%20Khoja%20Ahmed%20Yasawi.jpg")}
+.author{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center}
+.monogram{
+  width:62px;height:62px;border-radius:20px;
+  display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,var(--azure),var(--blue));
+  color:white;font-size:26px;font-weight:900;
+}
+.stat{text-align:center}
+.stat strong{display:block;font-size:42px;color:var(--azure);line-height:1}
+.stat span{font-weight:800;color:var(--blue)}
+.timeline{counter-reset:step}
+.step{
+  position:relative;
+  padding:0 0 26px 64px;
+  border-left:2px solid rgba(54,183,204,.28);
+  margin-left:18px;
+}
+.step:last-child{border-left-color:transparent}
+.step:before{
+  counter-increment:step;
+  content:counter(step);
+  position:absolute;
+  left:-19px;top:0;
+  width:38px;height:38px;border-radius:50%;
+  background:linear-gradient(135deg,var(--azure),var(--blue));
+  color:white;display:flex;align-items:center;justify-content:center;font-weight:900;
+}
+.query-number{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--azure);color:white;
+  display:flex;align-items:center;justify-content:center;
+  font-weight:900;margin-bottom:14px;
+}
+pre{
+  background:#0f4052;
+  color:#fff8ec;
+  padding:22px;
+  border-radius:20px;
+  overflow-x:auto;
+  font-size:13px;
+  line-height:1.55;
+}
+.proof{
+  margin-top:16px;
+  padding:16px 18px;
+  background:#f5e5c4;
+  border-left:6px solid var(--gold);
+  border-radius:14px;
+}
+.query-card{margin-bottom:30px}
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+th,td{
+  padding:16px;
+  border:1px solid rgba(201,162,39,.38);
+  vertical-align:top;
+  font-size:15px;
+}
+th{background:var(--blue);color:white}
+.footer{
+  margin-top:40px;
+  color:white;
+  text-align:center;
+  padding:90px 22px;
+  background:
+    linear-gradient(rgba(15,47,72,.78),rgba(15,47,72,.82)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Mausoleum%20of%20Khoja%20Ahmed%20Yasawi.jpg") center/cover no-repeat;
+}
+.footer h2{color:white}
+@media(max-width:900px){
+  h1{font-size:42px} h2{font-size:34px}
+  .nav-inner{display:block;text-align:center}
+  .nav a{display:inline-block;margin:5px 7px}
+  .grid-2,.grid-3,.grid-4{grid-template-columns:1fr}
+  .section-head{display:block}
+  .hero-box{padding:28px}
+}
+</style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#home">Yasawi KG Project</a>
+    <div>
+      <a href="#project">Project</a>
+      <a href="#methodology">Methodology</a>
+      <a href="#sparql">SPARQL</a>
+      <a href="#gaps">Gaps</a>
+      <a href="#llm">LLMs</a>
+      <a href="#rdf">RDF</a>
+      <a href="#conclusion">Conclusion</a>
+    </div>
+  </div>
+</nav>
+
+<header id="home" class="hero">
+  <div class="hero-content">
+    <div class="hero-box">
+      <div class="kicker">Knowledge Engineering for the Humanities</div>
+      <h1>Mausoleum of Khoja Ahmed Yasawi</h1>
+      <p class="subtitle">Knowledge Graph Enrichment using Wikidata, SPARQL and Large Language Models</p>
+      <p><strong>Gulnara Kozmet & Sevara Abdulazizova</strong></p>
+      <p>Language, Society and Communication — University of Bologna</p>
+
+      <div>
+        <span class="tag">Wikidata</span>
+        <span class="tag">SPARQL</span>
+        <span class="tag">RDF Triples</span>
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Gemini</span>
+        <span class="tag">Cultural Heritage</span>
+      </div>
+
+      <div class="actions">
+        <a class="glass-link" href="https://www.wikidata.org/wiki/Q46069" target="_blank">🏛️ Wikidata Entity Q46069</a>
+        <a class="glass-link" href="https://query.wikidata.org/" target="_blank">🔎 Wikidata Query Service</a>
+        <a class="glass-link" href="https://github.com/Gulina03/khoja-ahmed-yasawi-project" target="_blank">💻 GitHub Repository</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="project" class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Project Overview</div>
+      <h2>A digital humanities project on cultural heritage</h2>
+    </div>
+    <p>The project investigates how the Mausoleum of Khoja Ahmed Yasawi is represented in Wikidata and how missing cultural and religious knowledge can be added through RDF enrichment.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card blue">
+      <h3>Introduction</h3>
+      <p>The Mausoleum of Khoja Ahmed Yasawi is a major cultural and religious monument located in Turkistan, Kazakhstan. It is connected with Timurid architecture, Sufism, pilgrimage and cultural memory.</p>
+      <p>Our project uses Wikidata, SPARQL and Large Language Models to examine which forms of knowledge are already represented and which aspects remain underrepresented.</p>
+    </div>
+    <div class="photo one"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Project Authors</div>
+      <h2>Research team</h2>
+    </div>
+    <p>The authors are presented in an academic format without personal photographs.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card author">
+      <div class="monogram">G</div>
+      <div>
+        <h3>Gulnara Kozmet</h3>
+        <p>Master's Student<br>Language, Society and Communication<br>University of Bologna</p>
+        <p>Research design, SPARQL analysis, knowledge graph enrichment.</p>
+      </div>
+    </div>
+
+    <div class="card author">
+      <div class="monogram">S</div>
+      <div>
+        <h3>Sevara Abdulazizova</h3>
+        <p>Master's Student<br>Language, Society and Communication<br>University of Bologna</p>
+        <p>Knowledge graph research, LLM evaluation, RDF enrichment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Project Statistics</div>
+      <h2>Research at a glance</h2>
+    </div>
+  </div>
+
+  <div class="grid-4">
+    <div class="card stat"><strong>5</strong><span>SPARQL Queries</span></div>
+    <div class="card stat"><strong>4</strong><span>Knowledge Gaps</span></div>
+    <div class="card stat"><strong>2</strong><span>LLMs Evaluated</span></div>
+    <div class="card stat"><strong>4</strong><span>RDF Triples</span></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="grid-2">
+    <div class="card gold">
+      <h3>Why we chose this topic</h3>
+      <p>We chose the Mausoleum of Khoja Ahmed Yasawi because it is one of Kazakhstan's most meaningful cultural heritage monuments. It combines architecture, religion, identity, pilgrimage and memory.</p>
+      <p>The topic is suitable for knowledge graph enrichment because Wikidata already contains basic information, but several interpretive and religious aspects are underrepresented.</p>
+    </div>
+
+    <div class="card">
+      <h3>Main Research Question</h3>
+      <p><strong>What cultural, religious, and historical information about the Mausoleum of Khoja Ahmed Yasawi is missing from Wikidata, and how can it be added using Large Language Models?</strong></p>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:26px">
+    <div class="card">
+      <h3>Hypothesis</h3>
+      <p>Wikidata contains factual information about the mausoleum, such as location, architectural style, UNESCO status and historical metadata, but lacks deeper cultural, religious and symbolic knowledge.</p>
+    </div>
+
+    <div class="card">
+      <h3>Objectives</h3>
+      <ul>
+        <li>Explore the Wikidata entity Q46069.</li>
+        <li>Identify information already represented in the knowledge graph.</li>
+        <li>Verify missing cultural and religious knowledge using SPARQL.</li>
+        <li>Use ChatGPT and Gemini to generate RDF triples.</li>
+        <li>Select the most relevant triples through human assessment.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="methodology" class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Methodology</div>
+      <h2>From Wikidata exploration to RDF enrichment</h2>
+    </div>
+    <p>The methodology follows a structured workflow from knowledge graph exploration to LLM-assisted enrichment.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card timeline">
+      <div class="step"><strong>Topic selection:</strong> selected the Mausoleum of Khoja Ahmed Yasawi as the cultural heritage entity.</div>
+      <div class="step"><strong>Entity identification:</strong> found and examined the Wikidata entity Q46069.</div>
+      <div class="step"><strong>SPARQL analysis:</strong> used five queries with Basic Exploration, DISTINCT, OPTIONAL, FILTER, ORDER BY and LIMIT.</div>
+      <div class="step"><strong>Gap identification:</strong> compared available metadata with missing cultural and religious information.</div>
+      <div class="step"><strong>LLM prompting:</strong> tested zero-shot, few-shot and chain-of-thought prompts with ChatGPT and Gemini.</div>
+      <div class="step"><strong>RDF enrichment:</strong> selected final triples representing the missing knowledge.</div>
+    </div>
+    <div class="photo two"></div>
+  </div>
+</section>
+
+<section id="sparql" class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">SPARQL Analysis</div>
+      <h2>Query overview before detailed analysis</h2>
+    </div>
+    <p>Five SPARQL queries were selected to demonstrate different ways of exploring, checking and organizing knowledge graph data.</p>
+  </div>
+
+  <div class="grid-4">
+    <div class="card"><div class="query-number">1</div><h3>Basic Exploration</h3><p>Retrieve all available metadata about the monument.</p></div>
+    <div class="card"><div class="query-number">2</div><h3>DISTINCT</h3><p>Verify heritage designation and retrieve unique values.</p></div>
+    <div class="card"><div class="query-number">3</div><h3>OPTIONAL</h3><p>Identify missing information in the Wikidata entry.</p></div>
+    <div class="card"><div class="query-number">4</div><h3>FILTER</h3><p>Exclude unnecessary data and focus on relevant metadata.</p></div>
+  </div>
+
+  <div class="grid-2" style="margin-top:18px">
+    <div class="card"><div class="query-number">5</div><h3>ORDER BY + LIMIT</h3><p>Organize results alphabetically and limit output size.</p></div>
+    <div class="card gold">
+      <h3>SPARQL Logic</h3>
+      <p><strong>Exploration → Verification → Missing Data → Filtering → Organization</strong></p>
+      <p>Together, the queries show the current state of the Wikidata entry and support knowledge gap identification.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">SPARQL Details</div>
+      <h2>Query 1–5 with evidence</h2>
+    </div>
+  </div>
+
+  <div class="card query-card">
+    <h3>Query 1 — Basic Exploration</h3>
+    <p><strong>Purpose:</strong> To retrieve all available properties and values associated with the Mausoleum of Khoja Ahmed Yasawi.</p>
+<pre>SELECT ?propertyLabel ?valueLabel
+WHERE {
+  wd:Q46069 ?p ?value .
+  ?property wikibase:directClaim ?p .
+
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?property rdfs:label ?propertyLabel .
+    ?value rdfs:label ?valueLabel .
+  }
+}
+LIMIT 50</pre>
+    <div class="proof"><strong>Proof:</strong> The query returned 32 metadata records, including country = Kazakhstan, location = Turkistan, architectural style = Timurid architecture, heritage designation = World Heritage Site, commissioned by = Timur, and inception = 1400.</div>
+  </div>
+
+  <div class="card query-card">
+    <h3>Query 2 — DISTINCT</h3>
+    <p><strong>Purpose:</strong> To identify the heritage status of the monument and retrieve unique heritage designations.</p>
+<pre>SELECT DISTINCT ?heritageLabel
+WHERE {
+  wd:Q46069 wdt:P1435 ?heritage .
+
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?heritage rdfs:label ?heritageLabel .
+  }
+}</pre>
+    <div class="proof"><strong>Proof:</strong> The query confirmed that the monument is recognized as a World Heritage Site. DISTINCT ensured that duplicate heritage values were avoided.</div>
+  </div>
+
+  <div class="card query-card">
+    <h3>Query 3 — Detecting Missing Information with OPTIONAL</h3>
+    <p><strong>Purpose:</strong> To check whether Wikidata contains information about the architect of the monument.</p>
+<pre>SELECT ?itemLabel ?architectLabel
+WHERE {
+  VALUES ?item { wd:Q46069 }
+
+  OPTIONAL { ?item wdt:P84 ?architect . }
+
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+  }
+}</pre>
+    <div class="proof"><strong>Proof:</strong> The query returned the monument but no architect value. This shows that architect information is missing or not explicitly represented in Wikidata.</div>
+  </div>
+
+  <div class="card query-card">
+    <h3>Query 4 — Refining Results with FILTER</h3>
+    <p><strong>Purpose:</strong> To exclude image-related information and focus on descriptive metadata.</p>
+<pre>SELECT ?propertyLabel ?valueLabel
+WHERE {
+  wd:Q46069 ?p ?value .
+  ?property wikibase:directClaim ?p .
+
+  FILTER(?property != wd:P18)
+
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?property rdfs:label ?propertyLabel .
+    ?value rdfs:label ?valueLabel .
+  }
+}
+LIMIT 20</pre>
+    <div class="proof"><strong>Proof:</strong> The query returned metadata such as country, material, location, architectural style, UNESCO ID and heritage criteria while excluding the image property.</div>
+  </div>
+
+  <div class="card query-card">
+    <h3>Query 5 — Organizing Metadata with ORDER BY and LIMIT</h3>
+    <p><strong>Purpose:</strong> To sort the metadata alphabetically and limit the output to 15 rows.</p>
+<pre>SELECT ?propertyLabel ?valueLabel
+WHERE {
+  wd:Q46069 ?p ?value .
+  ?property wikibase:directClaim ?p .
+
+  SERVICE wikibase:label {
+    bd:serviceParam wikibase:language "en".
+    ?property rdfs:label ?propertyLabel .
+    ?value rdfs:label ?valueLabel .
+  }
+}
+ORDER BY ?propertyLabel
+LIMIT 15</pre>
+    <div class="proof"><strong>Proof:</strong> Results included World Heritage Site ID = 1103, World Heritage criteria = (i), (iii), (iv), TDV Encyclopedia of Islam ID, Commons category, Library of Congress authority ID and Kazakhstan.travel tourist spot ID.</div>
+  </div>
+</section>
+
+<section id="gaps" class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Knowledge Gaps</div>
+      <h2>Missing or underrepresented information</h2>
+    </div>
+    <p>SPARQL exploration showed that Wikidata contains factual metadata, but not all cultural and religious meanings are represented.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="card"><h3>Gap 1 — Connection with Yasawiyya Sufi Order</h3><p>The connection between the mausoleum and the Yasawiyya Sufi tradition is not explicitly modeled in Wikidata.</p></div>
+    <div class="card"><h3>Gap 2 — Role as a Pilgrimage Site</h3><p>The mausoleum is culturally understood as a pilgrimage destination, but this role is not clearly represented in Wikidata.</p></div>
+    <div class="card"><h3>Gap 3 — Spiritual and Religious Significance</h3><p>The knowledge graph lacks deeper information about the spiritual and religious meaning of the site.</p></div>
+    <div class="card"><h3>Gap 4 — Related Religious Heritage Sites</h3><p>Connections with related religious heritage sites in Kazakhstan are not explicitly represented.</p></div>
+  </div>
+</section>
+
+<section id="llm" class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">LLM Evaluation</div>
+      <h2>LLM Comparison: ChatGPT and Gemini</h2>
+    </div>
+    <p>We used three prompting techniques to compare the usefulness of ChatGPT and Gemini for RDF enrichment.</p>
+  </div>
+
+  <div class="grid-2">
+    <div class="photo three"></div>
+    <div class="card">
+      <h3>Prompting Techniques</h3>
+      <ul>
+        <li><strong>Zero-shot:</strong> no example was provided.</li>
+        <li><strong>Few-shot:</strong> an RDF example was provided before the task.</li>
+        <li><strong>Chain-of-Thought:</strong> the model was asked to reason step by step.</li>
+      </ul>
+      <p>ChatGPT produced more focused outputs aligned with the research questions. Gemini generated richer and more exploratory semantic suggestions.</p>
+    </div>
+  </div>
+
+  <div style="margin-top:26px">
+    <table>
+      <tr><th>Prompting Technique</th><th>ChatGPT</th><th>Gemini</th><th>Human Assessment</th></tr>
+      <tr><td>Zero-shot</td><td>Generated concise RDF triples focused on the identified gaps.</td><td>Generated richer semantic relations and explanations.</td><td>Both models were relevant. ChatGPT was clearer; Gemini was more descriptive.</td></tr>
+      <tr><td>Few-shot</td><td>Followed the example structure and produced consistent triples.</td><td>Introduced more complex semantic relations.</td><td>Few-shot improved both models.</td></tr>
+      <tr><td>Chain-of-Thought</td><td>Stayed close to the research questions and identified gaps.</td><td>Generated additional ideas but sometimes moved beyond the project scope.</td><td>ChatGPT was more focused; Gemini was more exploratory.</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="rdf" class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">RDF Enrichment</div>
+      <h2>Final RDF triples</h2>
+    </div>
+    <p>The final triples directly correspond to the four identified knowledge gaps.</p>
+  </div>
+
+  <div class="card">
+<pre>:Mausoleum_of_Khoja_Ahmed_Yasawi
+    :associatedWith :Yasawiyya_Sufi_Order .
+
+:Mausoleum_of_Khoja_Ahmed_Yasawi
+    :servesAs :Pilgrimage_Site .
+
+:Mausoleum_of_Khoja_Ahmed_Yasawi
+    :associatedWith :Sufism .
+
+:Mausoleum_of_Khoja_Ahmed_Yasawi
+    :relatedHeritageSite :Arystan_Bab_Mausoleum .</pre>
+  </div>
+
+  <div style="margin-top:26px">
+    <table>
+      <tr><th>Subject</th><th>Predicate</th><th>Object</th><th>Gap addressed</th></tr>
+      <tr><td>Mausoleum of Khoja Ahmed Yasawi</td><td>associatedWith</td><td>Yasawiyya Sufi Order</td><td>Yasawiyya connection</td></tr>
+      <tr><td>Mausoleum of Khoja Ahmed Yasawi</td><td>servesAs</td><td>Pilgrimage Site</td><td>Pilgrimage role</td></tr>
+      <tr><td>Mausoleum of Khoja Ahmed Yasawi</td><td>associatedWith</td><td>Sufism</td><td>Religious significance</td></tr>
+      <tr><td>Mausoleum of Khoja Ahmed Yasawi</td><td>relatedHeritageSite</td><td>Arystan Bab Mausoleum</td><td>Related heritage sites</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="conclusion" class="section">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">Conclusion</div>
+      <h2>Findings and challenges</h2>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <h3>Challenges Faced</h3>
+      <ul>
+        <li>Some SPARQL queries returned too much metadata, while others returned no results.</li>
+        <li>It was necessary to verify that the gaps were actually missing from Wikidata.</li>
+        <li>LLMs sometimes generated broad or speculative information.</li>
+        <li>Human validation was needed to select accurate and relevant RDF triples.</li>
+      </ul>
+    </div>
+
+    <div class="card gold">
+      <h3>Conclusion</h3>
+      <p>Wikidata contains structured factual information about the Mausoleum of Khoja Ahmed Yasawi, including its location, architectural style, UNESCO status and historical metadata.</p>
+      <p>However, SPARQL exploration showed that cultural, religious and spiritual aspects are underrepresented. ChatGPT and Gemini helped generate RDF enrichment proposals, while human assessment was necessary to select the final triples.</p>
+      <p>The project demonstrates how Semantic Web technologies and LLMs can complement each other in cultural heritage knowledge engineering.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <h2>Thank you for your attention</h2>
+  <p>Gulnara Kozmet & Sevara Abdulazizova</p>
+  <p>Language, Society and Communication — University of Bologna</p>
+  <p>Knowledge Engineering for the Humanities</p>
+</footer>
+
+</body>
+</html>
